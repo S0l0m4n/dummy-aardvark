@@ -1,2 +1,4 @@
 CAKE TIN
 ========
+* Investigated options for cake tin
+* Should I buy one or make one?
