@@ -1,12 +1,13 @@
 name: FWOS GitHub Actions
-run-name: Running check for ${{ github.actor }} on branch `${{ github.head_ref }}` to be merged into `${{ github.ref_name }}`
+run-name: Running rebase check for ${{ github.actor }} on branch `${{ github.head_ref }}` to be merged into `${{ github.base_ref }}
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, edited, reopened, synchronize]
 jobs:
   Check-Feature-Branch-Is-Rebased:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "Action triggered on ${{ github.event_name }}:${{ github.event.action }}"
       - name: Check out FWOS repository
         uses: actions/checkout@v3
         with:
