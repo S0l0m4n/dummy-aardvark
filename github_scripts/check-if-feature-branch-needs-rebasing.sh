@@ -8,7 +8,7 @@
 set -euo pipefail
 
 # set to 1 to enable debugging
-DEBUG=1
+DEBUG=0
 
 # Git remote name
 ORIGIN=origin
@@ -52,7 +52,7 @@ in $BASE_BRANCH which are not in $FEATURE_BRANCH \
 
 if [[ $DEBUG == 1 ]]; then
     echo $debug_message
-    exit 0
+    exit 0  # always return true
 fi
 
 # determine return value
