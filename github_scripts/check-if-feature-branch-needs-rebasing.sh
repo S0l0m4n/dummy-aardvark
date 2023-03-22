@@ -7,9 +7,6 @@
 # Bash strict mode
 set -euo pipefail
 
-# set to 1 to enable debugging
-DEBUG=0
-
 # Git remote name
 ORIGIN=origin
 
@@ -50,10 +47,7 @@ There are $num_commits_in_base_not_in_feature commits \
 in $BASE_BRANCH which are not in $FEATURE_BRANCH \
 "
 
-if [[ $DEBUG == 1 ]]; then
-    echo $debug_message
-    exit 0  # always return true
-fi
+echo $debug_message
 
 # determine return value
 #   - if true   (return 0), feature branch does not need to be rebased
