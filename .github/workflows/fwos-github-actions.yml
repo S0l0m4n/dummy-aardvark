@@ -1,0 +1,15 @@
+name: FWOS GitHub Actions
+run-name: Running check for ${{ github.actor }} on branch `${{ github.head_ref }}` to be merged into `${{ github.ref_name }}`
+on:
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize]
+jobs:
+  Check-Feature-Branch-Is-Rebased:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out FWOS repository
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
+      - name: Run script to check if feature branch needs to be rebased
+        run: ./github_scripts/check-if-feature-branch-needs-rebasing.sh ${{ github.base_ref }} ${{ github.head_ref }}
