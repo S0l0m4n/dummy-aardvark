@@ -1,6 +1,9 @@
 name: FWOS GitHub Actions
 run-name: Running rebase check for ${{ github.actor }} on branch `${{ github.head_ref }}` to be merged into `${{ github.base_ref }}
 on:
+  push:
+    branches:
+      - latest
   pull_request:
     types: [opened, edited, reopened, synchronize]
 jobs:
